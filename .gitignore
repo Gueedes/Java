@@ -1,12 +1,47 @@
-*.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+import java.util.Scanner;
+/**
+ * Escreva a descrição da classe Exercicio1 aqui.
+ * 
+ * @author (seu nome) 
+ * @version (número de versão ou data)
+ */
+public class Exercicio1
+{
+  public static void main(String args[]){
+       Scanner tec = new Scanner(System.in);
+       System.out.println("\f Digite o número de alunos da sala ");
+       int alunos = tec.nextInt();
+       double vetnotas[] = new double[alunos];
+       double soma = 0;
+       for (int i = 0; i < alunos; i++){
+          System.out.println("Digite a " + (i+1) + " nota");
+          vetnotas[i] = tec.nextDouble();
+          soma = soma + vetnotas[i];
+        }
+       double média = soma/alunos;
+       System.out.println("A média das notas dos alunos é: " + média);
+       double vet2[] = new double[alunos];
+       double vet3[] = new double[alunos];
+       for (int i = 0; i < alunos; i++){
+           if(vetnotas[i]>média){
+               vet2[i] = vetnotas[i]; 
+            }   else if(vetnotas[i]<média){
+                vet3[i] = vetnotas[i];
+            }
+       }
+       System.out.println("As notas maiores são: "); 
+       imprimirVetorInt(vet2);
+       System.out.println("As notas menores são: "); 
+       imprimirVetorInt(vet3);
+    }
+  public static void imprimirVetorInt(double[] vetor){ // Esta versão do método não imprime inteiros nulos (iguais a zero)
+     int tamanho = vetor.length;
+     
+     for(int c = 0; c<tamanho; c++){
+            if(vetor[c] != 0){
+                System.out.println(" " + vetor[c]);
+                
+            }
+     }
+  }
+}
